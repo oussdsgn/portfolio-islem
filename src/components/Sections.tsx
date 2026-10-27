@@ -47,14 +47,14 @@ function SectionHead({ label, title, dark = false }: { label: string; title: str
   );
 }
 
-function Marquee({ text, className, itemClassName }: { text: string; className?: string; itemClassName?: string }) {
+function Marquee({ text, className }: { text: string; className?: string }) {
   return (
     <div className={`flex w-max animate-marquee ${className ?? ""}`} aria-hidden>
       {[0, 1].map((n) => (
         <span key={n} className="flex shrink-0">
           {[0, 1].map((m) => (
             <span key={m} className="pr-[0.6em]">
-              <span className={itemClassName}>{text}</span>
+              {text}
             </span>
           ))}
         </span>
@@ -67,20 +67,13 @@ export function Hero({ hero }: { hero: Dict["hero"] }) {
   return (
     <section id="top" className="relative overflow-hidden bg-ink pt-14 text-white md:pt-[70px]">
       <div className="relative min-h-[calc(100svh-3.5rem)] md:min-h-[calc(100svh-70px)]">
-        <div className="absolute right-0 top-[19%] h-[46%] w-full md:bottom-0 md:top-[22%] md:h-auto md:w-[58%]">
+        <div className="absolute right-0 top-[4%] h-[50%] w-full md:bottom-0 md:top-[6%] md:h-auto md:w-[58%]">
           <Halftone src="/rahil-gray.png" className="h-full w-full opacity-90" spacing={6} />
         </div>
-        
+
         <h1 className="sr-only">
           {profile.name} — {hero.headline}
         </h1>
-        <div className="relative overflow-hidden pt-[7vh]">
-          <Marquee
-            text={hero.headline.toUpperCase()}
-            className="font-mono text-[14vw] font-bold leading-[1.15] md:text-[7vw]"
-            itemClassName="mark-lime"
-          />
-        </div>
 
         <div className={`${container} relative flex pb-14 pt-[50svh] md:absolute md:inset-x-0 md:bottom-0 md:pb-16 md:pt-0`}>
           <div className="max-w-md">
