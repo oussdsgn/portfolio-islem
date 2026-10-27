@@ -15,7 +15,6 @@ import {
   Wrench,
 } from "lucide-react";
 import { liveSites, profile, ticker, type Dict } from "@/content";
-import Halftone from "./Halftone";
 import { ExperienceList, FaqList } from "./Accordion";
 
 // Cached at build time; refreshes on each deploy
@@ -68,7 +67,15 @@ export function Hero({ hero }: { hero: Dict["hero"] }) {
     <section id="top" className="relative overflow-hidden bg-ink pt-14 text-white md:pt-[70px]">
       <div className="relative min-h-[calc(100svh-3.5rem)] md:min-h-[calc(100svh-70px)]">
         <div className="absolute right-0 top-[3%] h-[52%] w-full md:inset-y-0 md:top-[3%] md:h-auto md:w-[55%]">
-          <Halftone src="/rahil-hero.png" className="h-full w-full opacity-90" spacing={5} />
+          <Image
+            src="/rahil-hero.png"
+            alt={profile.name}
+            fill
+            loading="eager"
+            fetchPriority="high"
+            sizes="(min-width: 768px) 55vw, 100vw"
+            className="object-contain object-bottom"
+          />
         </div>
 
         <h1 className="sr-only">
