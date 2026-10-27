@@ -3,8 +3,8 @@
 @theme {
   --color-paper: #f2f2f0;
   --color-ink: #0a0a0a;
-  --color-lime: #b1c803;
-  --color-lime-dark: #667300;
+  --color-accent: #ff8562;
+  --color-accent-dark: #b3421f;
   --color-muted: #6e6e68;
   --color-soft: #8a8a84;
   --color-line: #dededa;
@@ -49,7 +49,7 @@ body {
 }
 
 ::selection {
-  background: var(--color-lime);
+  background: var(--color-accent);
   color: var(--color-ink);
 }
 
@@ -71,8 +71,8 @@ body {
 }
 
 /* Highlighted text block in the hero */
-.mark-lime {
-  background: var(--color-lime);
+.mark-accent {
+  background: var(--color-accent);
   color: var(--color-ink);
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;

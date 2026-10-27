@@ -44,7 +44,7 @@ export default function Header({ lang, nav }: Props) {
 
         <div className="flex items-center gap-3 md:gap-5">
           <span className="hidden items-center gap-2 text-[11px] uppercase tracking-wider text-muted lg:flex">
-            <span className="size-2 animate-pulse-dot bg-lime" />
+            <span className="size-2 animate-pulse-dot bg-accent" />
             {nav.available}
           </span>
           <Link
@@ -58,7 +58,7 @@ export default function Header({ lang, nav }: Props) {
           </Link>
           <a
             href="#contact"
-            className="hidden bg-ink px-4 py-3 text-xs uppercase tracking-wider text-white transition-colors hover:bg-lime hover:text-ink sm:block"
+            className="hidden bg-ink px-4 py-3 text-xs uppercase tracking-wider text-white transition-colors hover:bg-accent hover:text-ink sm:block"
           >
             {nav.cta}
           </a>

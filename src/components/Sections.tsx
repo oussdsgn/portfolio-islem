@@ -67,8 +67,8 @@ export function Hero({ hero }: { hero: Dict["hero"] }) {
   return (
     <section id="top" className="relative overflow-hidden bg-ink pt-14 text-white md:pt-[70px]">
       <div className="relative min-h-[calc(100svh-3.5rem)] md:min-h-[calc(100svh-70px)]">
-        <div className="absolute right-0 top-[4%] h-[50%] w-full md:bottom-0 md:top-[6%] md:h-auto md:w-[58%]">
-          <Halftone src="/rahil-gray.png" className="h-full w-full opacity-90" spacing={6} />
+        <div className="absolute right-0 top-[3%] h-[52%] w-full md:inset-y-0 md:top-[3%] md:h-auto md:w-[55%]">
+          <Halftone src="/rahil-hero.png" className="h-full w-full opacity-90" spacing={5} />
         </div>
 
         <h1 className="sr-only">
@@ -78,12 +78,12 @@ export function Hero({ hero }: { hero: Dict["hero"] }) {
         <div className={`${container} relative flex pb-14 pt-[50svh] md:absolute md:inset-x-0 md:bottom-0 md:pb-16 md:pt-0`}>
           <div className="max-w-md">
             <p className="text-sm leading-[1.9] md:text-[15px]">
-              <span className="mark-lime">{hero.intro}</span>
+              <span className="mark-accent">{hero.intro}</span>
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
                 href="#work"
-                className="bg-lime px-5 py-3.5 text-xs font-bold uppercase tracking-wider text-ink transition-colors hover:bg-white"
+                className="bg-accent px-5 py-3.5 text-xs font-bold uppercase tracking-wider text-ink transition-colors hover:bg-white"
               >
                 {hero.seeWork}
               </a>
@@ -99,7 +99,7 @@ export function Hero({ hero }: { hero: Dict["hero"] }) {
         </div>
       </div>
 
-      <div className="overflow-hidden border-y border-white/10 bg-lime py-3 text-ink">
+      <div className="overflow-hidden border-y border-white/10 bg-accent py-3 text-ink">
         <Marquee
           text={ticker.map((t) => t.toUpperCase()).join(" / ") + " /"}
           className="animate-marquee-fast text-xs font-bold tracking-wider"
@@ -135,7 +135,7 @@ export function About({ about }: { about: Dict["about"] }) {
             {about.facts.map((f) => (
               <li key={f}>{f}</li>
             ))}
-            <li className="text-lime-dark">{about.available}</li>
+            <li className="text-accent-dark">{about.available}</li>
           </ul>
         </div>
       </div>
@@ -144,7 +144,7 @@ export function About({ about }: { about: Dict["about"] }) {
 }
 
 export function Numbers({ numbers }: { numbers: Dict["numbers"] }) {
-  const accents = ["text-lime-dark", "text-ink", "text-ink", "text-lime"];
+  const accents = ["text-accent-dark", "text-ink", "text-ink", "text-accent"];
   const heights = ["md:pb-28", "md:pt-20 md:pb-10", "md:pt-36", "md:pb-20"];
   return (
     <section className={`${container} pb-24 md:pb-36`}>
@@ -179,7 +179,7 @@ export function Work({ work }: { work: Dict["work"] }) {
           >
             <div className="relative grid aspect-[4/3] place-items-center overflow-hidden bg-ink">
               <div className="absolute inset-0 opacity-40 [background-image:radial-gradient(#555_1px,transparent_1.5px)] [background-size:10px_10px] transition-opacity duration-500 group-hover:opacity-70" />
-              <span className="relative font-display text-7xl font-bold text-lime transition-transform duration-500 group-hover:scale-110">
+              <span className="relative font-display text-7xl font-bold text-accent transition-transform duration-500 group-hover:scale-110">
                 {projectGlyphs[i] ?? "◆"}
               </span>
             </div>
@@ -219,7 +219,7 @@ export function Stack({ stack }: { stack: Dict["stack"] }) {
             return (
               <div
                 key={layer.name}
-                className="group relative border-l border-t border-ink/80 bg-paper p-6 transition-all duration-200 hover:z-10 hover:-translate-x-1 hover:-translate-y-1 hover:bg-lime hover:shadow-[8px_8px_0_#0a0a0a]"
+                className="group relative border-l border-t border-ink/80 bg-paper p-6 transition-all duration-200 hover:z-10 hover:-translate-x-1 hover:-translate-y-1 hover:bg-accent hover:shadow-[8px_8px_0_#0a0a0a]"
               >
                 <div className="flex items-center justify-between">
                   <h3 className="font-display text-lg font-bold">{layer.name}</h3>
@@ -272,11 +272,11 @@ export function LiveSites({ sites }: { sites: Dict["sites"] }) {
             className={`group border-l border-ink/80 px-4 pb-2 ${i % 2 ? "lg:mt-12" : ""}`}
           >
             <Globe size={18} className="text-muted" />
-            <h3 className="mt-4 font-display text-lg font-bold underline decoration-1 underline-offset-4 group-hover:decoration-lime group-hover:decoration-2">
+            <h3 className="mt-4 font-display text-lg font-bold underline decoration-1 underline-offset-4 group-hover:decoration-accent group-hover:decoration-2">
               {site.name}
             </h3>
             <p className="mt-2 text-[13px] text-muted">{site.label}</p>
-            <p className="mt-5 flex items-center gap-1 text-[11px] uppercase tracking-wider text-lime-dark">
+            <p className="mt-5 flex items-center gap-1 text-[11px] uppercase tracking-wider text-accent-dark">
               {sites.visit} <ArrowUpRight size={14} className="transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </p>
           </a>
@@ -292,7 +292,7 @@ export function Research({ research }: { research: Dict["research"] }) {
       <SectionHead label={research.label} title={research.title} />
       <div className="grid gap-8 lg:grid-cols-2">
         <article className="flex flex-col bg-ink p-7 text-white md:p-10">
-          <span className="flex w-fit items-center gap-2 bg-lime px-2 py-1 text-[11px] font-bold uppercase tracking-wider text-ink">
+          <span className="flex w-fit items-center gap-2 bg-accent px-2 py-1 text-[11px] font-bold uppercase tracking-wider text-ink">
             <FileText size={14} /> {research.paperTag}
           </span>
           <h3 className="mt-8 font-display text-2xl font-bold leading-snug md:text-3xl">“{research.paper}”</h3>
@@ -302,7 +302,7 @@ export function Research({ research }: { research: Dict["research"] }) {
           {research.education.map((e) => (
             <li key={e.degree} className="border-b border-line px-5 py-6 last:border-b-0 md:px-7">
               <div className="flex items-start gap-4">
-                <GraduationCap size={18} className="mt-1 shrink-0 text-lime-dark" />
+                <GraduationCap size={18} className="mt-1 shrink-0 text-accent-dark" />
                 <div className="flex-1">
                   <h3 className="font-display text-base font-bold md:text-lg">{e.degree}</h3>
                   <p className="mt-1 flex flex-wrap justify-between gap-2 text-[13px] text-muted">
@@ -333,13 +333,13 @@ export function Process({ process }: { process: Dict["process"] }) {
             </p>
             {process.steps.map((s, i) => (
               <p key={s.name}>
-                <span className="text-lime">$</span> step {i + 1} --{s.name.toLowerCase().replace(/[^a-zà-ÿ]+/g, "-")}
+                <span className="text-accent">$</span> step {i + 1} --{s.name.toLowerCase().replace(/[^a-zà-ÿ]+/g, "-")}
                 <br />
                 <span className="text-white/30">✓ done</span>
               </p>
             ))}
             <p>
-              <span className="text-lime">$</span> <span className="animate-pulse-dot">▍</span>
+              <span className="text-accent">$</span> <span className="animate-pulse-dot">▍</span>
             </p>
           </div>
           <ol className="border-l border-white/20">
@@ -349,10 +349,10 @@ export function Process({ process }: { process: Dict["process"] }) {
                 <li key={step.name} className="px-6 py-7 md:px-8">
                   <div className="flex items-center justify-between">
                     <h3 className="flex items-baseline gap-3 font-display text-lg font-bold">
-                      <span className="font-mono text-[11px] text-lime">{String(i + 1).padStart(2, "0")}</span>
+                      <span className="font-mono text-[11px] text-accent">{String(i + 1).padStart(2, "0")}</span>
                       {step.name}
                     </h3>
-                    <Icon size={18} className="text-lime" />
+                    <Icon size={18} className="text-accent" />
                   </div>
                   <p className="mt-3 max-w-md text-[13px] leading-relaxed text-white/60">{step.text}</p>
                 </li>
@@ -374,7 +374,7 @@ export function Faq({ faq }: { faq: Dict["faq"] }) {
           <h2 className="mt-6 font-display text-3xl font-bold leading-[1.05] tracking-tight md:text-5xl">{faq.title}</h2>
           <a
             href={`mailto:${profile.email}`}
-            className="mt-10 inline-block bg-ink px-5 py-3.5 text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-lime hover:text-ink"
+            className="mt-10 inline-block bg-ink px-5 py-3.5 text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-accent hover:text-ink"
           >
             {faq.ask}
           </a>
@@ -406,18 +406,18 @@ export function Contact({ contact, footerName }: { contact: Dict["contact"]; foo
         <div className="mt-12 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <a
             href={`mailto:${profile.email}`}
-            className="w-fit bg-lime px-5 py-3.5 text-xs font-bold uppercase tracking-wider text-ink transition-colors hover:bg-white"
+            className="w-fit bg-accent px-5 py-3.5 text-xs font-bold uppercase tracking-wider text-ink transition-colors hover:bg-white"
           >
             {contact.cta}
           </a>
           <div className="md:text-right">
             <a
               href={`mailto:${profile.email}`}
-              className="block break-all font-mono text-xl font-bold hover:text-lime sm:text-2xl md:text-3xl"
+              className="block break-all font-mono text-xl font-bold hover:text-accent sm:text-2xl md:text-3xl"
             >
               {profile.email}
             </a>
-            <a href={profile.phoneHref} className="mt-2 block text-sm text-white/60 hover:text-lime">
+            <a href={profile.phoneHref} className="mt-2 block text-sm text-white/60 hover:text-accent">
               {profile.phone}
             </a>
           </div>
@@ -427,7 +427,7 @@ export function Contact({ contact, footerName }: { contact: Dict["contact"]; foo
           <ul className="flex flex-wrap gap-6 border-l border-white/40 pl-3">
             {links.map((l) => (
               <li key={l.label}>
-                <a href={l.href} target="_blank" rel="noopener noreferrer" className="hover:text-lime">
+                <a href={l.href} target="_blank" rel="noopener noreferrer" className="hover:text-accent">
                   {l.label}
                 </a>
               </li>
