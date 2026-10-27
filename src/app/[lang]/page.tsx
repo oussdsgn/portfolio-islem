@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getDictionary, hasLocale, profile } from "@/content";
+import { getDictionary, hasLocale } from "@/content";
 import Header from "@/components/Header";
 import {
   About,
@@ -33,7 +33,7 @@ export default async function Page({ params }: PageProps<"/[lang]">) {
           <div className="relative">
             <About about={t.about} />
             <Numbers numbers={t.numbers} />
-            <Work work={t.work} />
+            <Work work={t.work} lang={lang} view={t.project.view} />
             <Stack stack={t.stack} />
             <Experience experience={t.experience} />
             <LiveSites sites={t.sites} />
@@ -41,8 +41,8 @@ export default async function Page({ params }: PageProps<"/[lang]">) {
           </div>
         </div>
         <Process process={t.process} />
-        <Faq faq={t.faq} />
-        <Contact contact={t.contact} footerName={profile.name} />
+        <Faq faq={t.faq} lang={lang} />
+        <Contact contact={t.contact} lang={lang} />
       </main>
     </>
   );

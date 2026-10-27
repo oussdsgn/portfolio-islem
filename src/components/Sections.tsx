@@ -1,5 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
 import {
+  ArrowRight,
   ArrowUpRight,
   Code2,
   Database,
@@ -14,7 +16,7 @@ import {
   Terminal,
   Wrench,
 } from "lucide-react";
-import { liveSites, profile, ticker, type Dict } from "@/content";
+import { liveSites, profile, ticker, type Dict, type Locale } from "@/content";
 import Halftone from "./Halftone";
 import { ExperienceList, FaqList } from "./Accordion";
 
@@ -24,7 +26,7 @@ async function Year() {
   return new Date().getFullYear();
 }
 
-const container = "mx-auto w-full max-w-[1280px] px-4 md:px-8";
+export const container = "mx-auto w-full max-w-[1280px] px-4 md:px-8";
 
 function SectionHead({ label, title, dark = false }: { label: string; title: string; dark?: boolean }) {
   return (
@@ -163,9 +165,9 @@ export function Numbers({ numbers }: { numbers: Dict["numbers"] }) {
   );
 }
 
-const projectGlyphs = ["{ }", "⌂", "HR", "∿", "▶", "☎"];
+export const projectGlyphs = ["{ }", "⌂", "HR", "∿", "▶", "☎"];
 
-export function Work({ work }: { work: Dict["work"] }) {
+export function Work({ work, lang, view }: { work: Dict["work"]; lang: Locale; view: string }) {
   return (
     <section id="work" className="pb-24 md:pb-36">
       <div className={container}>
@@ -173,9 +175,10 @@ export function Work({ work }: { work: Dict["work"] }) {
       </div>
       <div className="flex snap-x snap-mandatory gap-5 overflow-x-auto px-4 pb-6 [scrollbar-width:thin] md:px-[max(2rem,calc((100vw_-_1280px)/2_+_2rem))] md:scroll-px-[max(2rem,calc((100vw_-_1280px)/2_+_2rem))]">
         {work.items.map((p, i) => (
-          <article
-            key={p.title}
-            className="group flex w-[85vw] shrink-0 snap-start flex-col bg-white sm:w-[420px]"
+          <Link
+            key={p.slug}
+            href={`/${lang}/projects/${p.slug}`}
+            className="group flex w-[85vw] shrink-0 snap-start flex-col bg-white transition-shadow hover:shadow-[8px_8px_0_#0a0a0a] sm:w-[420px]"
           >
             <div className="relative grid aspect-[4/3] place-items-center overflow-hidden bg-ink">
               <div className="absolute inset-0 opacity-40 [background-image:radial-gradient(#555_1px,transparent_1.5px)] [background-size:10px_10px] transition-opacity duration-500 group-hover:opacity-70" />
@@ -188,7 +191,9 @@ export function Work({ work }: { work: Dict["work"] }) {
                 <span>{String(i + 1).padStart(2, "0")}</span>
                 <span>{p.year}</span>
               </div>
-              <h3 className="mt-3 font-display text-lg font-bold">{p.title}</h3>
+              <h3 className="mt-3 font-display text-lg font-bold group-hover:underline group-hover:decoration-accent group-hover:decoration-2 group-hover:underline-offset-4">
+                {p.title}
+              </h3>
               <ul className="mt-3 flex flex-wrap gap-1.5">
                 {p.stack.map((s) => (
                   <li key={s} className="border border-ink/70 px-1.5 py-0.5 text-[10px] uppercase tracking-wider">
@@ -197,9 +202,15 @@ export function Work({ work }: { work: Dict["work"] }) {
                 ))}
               </ul>
               <p className="mt-4 text-[13px] leading-relaxed text-muted">{p.description}</p>
-              <p className="mt-auto pt-5 text-[11px] uppercase tracking-wider text-soft">{p.role}</p>
+              <div className="mt-auto flex items-center justify-between pt-5 text-[11px] uppercase tracking-wider">
+                <span className="text-soft">{p.role}</span>
+                <span className="flex items-center gap-1 text-accent-dark">
+                  {view}
+                  <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
+                </span>
+              </div>
             </div>
-          </article>
+          </Link>
         ))}
       </div>
     </section>
@@ -365,19 +376,19 @@ export function Process({ process }: { process: Dict["process"] }) {
   );
 }
 
-export function Faq({ faq }: { faq: Dict["faq"] }) {
+export function Faq({ faq, lang }: { faq: Dict["faq"]; lang: Locale }) {
   return (
     <section className={`${container} py-24 md:py-36`}>
       <div className="grid gap-12 lg:grid-cols-[2fr_3fr]">
         <div>
           <p className="w-fit border-l border-ink pl-3 text-[11px] uppercase tracking-wider text-muted">{faq.label}</p>
           <h2 className="mt-6 font-display text-3xl font-bold leading-[1.05] tracking-tight md:text-5xl">{faq.title}</h2>
-          <a
-            href={`mailto:${profile.email}`}
+          <Link
+            href={`/${lang}/contact`}
             className="mt-10 inline-block bg-ink px-5 py-3.5 text-xs font-bold uppercase tracking-wider text-white transition-colors hover:bg-accent hover:text-ink"
           >
             {faq.ask}
-          </a>
+          </Link>
           <p className="mt-4 max-w-xs text-[13px] text-muted">{faq.askNote}</p>
         </div>
         <FaqList items={faq.items} />
@@ -386,12 +397,42 @@ export function Faq({ faq }: { faq: Dict["faq"] }) {
   );
 }
 
-export function Contact({ contact, footerName }: { contact: Dict["contact"]; footerName: string }) {
+export function Footer({ rights }: { rights: string }) {
   const links = [
     { label: "GitHub", href: profile.github },
     { label: "LinkedIn", href: profile.linkedin },
     { label: "CV (PDF)", href: profile.cv },
   ];
+  return (
+    <footer className="flex flex-col gap-4 border-t border-white/10 pt-6 text-[11px] uppercase tracking-wider text-white/50 md:flex-row md:items-center md:justify-between">
+      <ul className="flex flex-wrap gap-6 border-l border-white/40 pl-3">
+        {links.map((l) => (
+          <li key={l.label}>
+            <a href={l.href} target="_blank" rel="noopener noreferrer" className="hover:text-accent">
+              {l.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <p>
+        © <Year /> {profile.name} · {rights}
+      </p>
+    </footer>
+  );
+}
+
+// Dark footer band for the inner pages
+export function SiteFooter({ rights }: { rights: string }) {
+  return (
+    <div className="bg-ink pb-10 pt-2">
+      <div className={container}>
+        <Footer rights={rights} />
+      </div>
+    </div>
+  );
+}
+
+export function Contact({ contact, lang }: { contact: Dict["contact"]; lang: Locale }) {
   return (
     <section id="contact" className="relative overflow-hidden bg-ink text-white">
       <div className="plus-pattern pointer-events-none absolute inset-x-0 bottom-20 h-56" />
@@ -404,12 +445,12 @@ export function Contact({ contact, footerName }: { contact: Dict["contact"]; foo
           {contact.titleStrong}
         </h2>
         <div className="mt-12 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
-          <a
-            href={`mailto:${profile.email}`}
+          <Link
+            href={`/${lang}/contact`}
             className="w-fit bg-accent px-5 py-3.5 text-xs font-bold uppercase tracking-wider text-ink transition-colors hover:bg-white"
           >
             {contact.cta}
-          </a>
+          </Link>
           <div className="md:text-right">
             <a
               href={`mailto:${profile.email}`}
@@ -423,20 +464,9 @@ export function Contact({ contact, footerName }: { contact: Dict["contact"]; foo
           </div>
         </div>
 
-        <footer className="mt-28 flex flex-col gap-4 border-t border-white/10 pt-6 text-[11px] uppercase tracking-wider text-white/50 md:flex-row md:items-center md:justify-between">
-          <ul className="flex flex-wrap gap-6 border-l border-white/40 pl-3">
-            {links.map((l) => (
-              <li key={l.label}>
-                <a href={l.href} target="_blank" rel="noopener noreferrer" className="hover:text-accent">
-                  {l.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-          <p>
-            © <Year /> {footerName} · {contact.rights}
-          </p>
-        </footer>
+        <div className="mt-28">
+          <Footer rights={contact.rights} />
+        </div>
       </div>
     </section>
   );

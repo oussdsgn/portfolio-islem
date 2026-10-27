@@ -91,6 +91,17 @@ const en = {
         description:
           "Client companies submit and track maintenance requests; service providers plan and manage interventions from one central space.",
         role: "Full-stack",
+        slug: "maintenance-platform",
+        details: [
+          "A B2B platform for managing maintenance interventions. Client companies submit their requests and follow their progress, while service providers plan and manage the interventions from one centralised space.",
+          "Bringing both sides into a single tool improves the traceability of every request and the coordination of operations.",
+        ],
+        highlights: [
+          "Request submission and tracking for client companies",
+          "Intervention planning and management for providers",
+          "One central space shared by clients and providers",
+          "Better traceability and coordination of operations",
+        ],
       },
       {
         title: "Property management SaaS + mobile app",
@@ -99,6 +110,17 @@ const en = {
         description:
           "Manage properties, report breakdowns and follow interventions. Centralises the follow-up of residences for faster, better service.",
         role: "Web + Android",
+        slug: "property-management",
+        details: [
+          "A property-management SaaS paired with a mobile app: managers handle their properties, breakdowns get reported, and interventions are followed from start to finish.",
+          "The platform centralises the follow-up of the property portfolio and residences, making managers more responsive and improving the quality of service for residents.",
+        ],
+        highlights: [
+          "Property and residence management",
+          "Breakdown reporting from the mobile app",
+          "Intervention tracking",
+          "Android app built with Kotlin and Jetpack",
+        ],
       },
       {
         title: "HR management SaaS",
@@ -107,6 +129,17 @@ const en = {
         description:
           "Staff records, attendance, leave and absences in one place — less admin work, more reliable HR data.",
         role: "Full-stack",
+        slug: "hr-management",
+        details: [
+          "An HR management SaaS that centralises staff records, attendance tracking, leave and absences.",
+          "It simplifies administrative tasks, makes the data more reliable and eases day-to-day HR follow-up. Built on my large-project stack: Java, Spring Boot and Angular.",
+        ],
+        highlights: [
+          "Centralised staff records",
+          "Attendance tracking",
+          "Leave and absence management",
+          "Less admin work, more reliable data",
+        ],
       },
       {
         title: "SIM-card fraud detection — Djezzy",
@@ -115,6 +148,19 @@ const en = {
         description:
           "Unsupervised deep learning on 1.5M real transactions, no labelled fraud needed. 26 engineered features, AUC-ROC 0.885.",
         role: "Data science · Internship",
+        slug: "sim-fraud-detection",
+        details: [
+          "During my data-engineering internship at Djezzy, I worked on detecting commercial fraud linked to SIM cards using AI and machine learning. I developed an unsupervised deep-learning approach that spots unusual behaviour in real transactions, without relying on previously labelled fraud examples.",
+          "From 1.5 million transactions I engineered 26 behavioural and temporal features, then compared several autoencoder architectures against a baseline model. The deep autoencoder performed best, with an AUC-ROC of 0.885. I used t-SNE, SHAP and HDBSCAN to visualise, interpret and analyse the detected anomalies, identifying more than 4,000 anomaly patterns.",
+          "The work led to a paper, “Unsupervised Anomaly Detection for SIM Card Fraud Using Autoencoder-Based Reconstruction Error Analysis”, presented at the IEEE AIIA 2025 international conference in Boumerdès, Algeria.",
+        ],
+        highlights: [
+          "1.5M real transactions",
+          "26 behavioural and temporal features",
+          "AUC-ROC of 0.885 with a deep autoencoder",
+          "4,000+ anomaly patterns identified",
+          "Published at IEEE AIIA 2025",
+        ],
       },
       {
         title: "E-learning platform — Expert Petroleum Services",
@@ -123,6 +169,16 @@ const en = {
         description:
           "Centralises course material and makes remote learning easier for the company’s trainees.",
         role: "Design & development",
+        slug: "e-learning-platform",
+        details: [
+          "At Expert Petroleum Services I designed and built an e-learning platform that centralises learning resources and makes remote learning easier.",
+          "Alongside it, I trained students in web-development fundamentals with a hands-on approach, and contributed to the technical design and architecture of the company’s projects, aiming for reliable, scalable solutions fitted to its needs.",
+        ],
+        highlights: [
+          "Learning resources centralised in one place",
+          "Remote learning made easier",
+          "Architecture built for reliability and growth",
+        ],
       },
       {
         title: "Employee & IP-phone manager — Sonelgaz SPE",
@@ -131,6 +187,16 @@ const en = {
         description:
           "One tool for employee accounts and their IP phone lines, simplifying assignment tracking for the IT team.",
         role: "Web development · Internship",
+        slug: "sonelgaz-ip-manager",
+        details: [
+          "During my web-development internship at SPE (Sonelgaz Algerian Power Company), I built an application that makes it easier to manage employee accounts and their IP phone lines.",
+          "The goal was to gather the information in one tool and simplify assignment tracking for the IT team — a hands-on look at managing IT systems inside a large company.",
+        ],
+        highlights: [
+          "Employee accounts and IP phone lines in one tool",
+          "Simpler assignment tracking for the IT team",
+          "Built with JEE (Java)",
+        ],
       },
     ],
   },
@@ -297,11 +363,43 @@ const en = {
       },
     ],
   },
+  project: {
+    back: "All projects",
+    overview: "Overview",
+    highlights: "Highlights",
+    stack: "Stack",
+    role: "Role",
+    year: "Year",
+    view: "View project",
+    next: "Next project",
+    cta: "Have a similar project in mind?",
+    ctaButton: "Let’s talk",
+  },
+  contactPage: {
+    metaTitle: "Contact — Rahil Mohamed Islam",
+    label: "Contact",
+    title: "Let’s build something together.",
+    intro: "Tell me about your project, your team or your idea. I’ll get back to you quickly.",
+    direct: "Or reach me directly",
+    location: "Algiers, Algeria · UTC+1",
+    form: {
+      name: "Name",
+      email: "Email",
+      company: "Company (optional)",
+      message: "Message",
+      messagePlaceholder: "What are you building, and how can I help?",
+      send: "Send message",
+      sending: "Sending…",
+      success: "Thanks — your message has been sent. I’ll get back to you soon.",
+      invalid: "Please enter your name, a valid email and a message.",
+      error: "Your message couldn’t be sent. Please try again, or email me directly.",
+    },
+  },
   contact: {
     label: "11 / Contact",
     titleMuted: "Got a product that needs",
     titleStrong: "to start moving?",
-    cta: "Send an email",
+    cta: "Send a message",
     rights: "All rights reserved",
   },
 };
@@ -358,6 +456,17 @@ const fr: Dict = {
         description:
           "Les entreprises clientes soumettent et suivent leurs demandes ; les prestataires planifient et gèrent les interventions depuis un espace centralisé.",
         role: "Full stack",
+        slug: "maintenance-platform",
+        details: [
+          "Une plateforme B2B de gestion des interventions de maintenance. Les entreprises clientes soumettent et suivent leurs demandes, tandis que les prestataires planifient et gèrent les interventions depuis un espace centralisé.",
+          "Réunir les deux côtés dans un même outil améliore la traçabilité de chaque demande et la coordination des opérations.",
+        ],
+        highlights: [
+          "Soumission et suivi des demandes pour les entreprises clientes",
+          "Planification et gestion des interventions pour les prestataires",
+          "Un espace central partagé par clients et prestataires",
+          "Meilleure traçabilité et coordination des opérations",
+        ],
       },
       {
         title: "SaaS de gestion immobilière + appli mobile",
@@ -366,6 +475,17 @@ const fr: Dict = {
         description:
           "Gérer les biens, signaler les pannes et suivre les interventions. Centralise le suivi des résidences pour un service plus réactif.",
         role: "Web + Android",
+        slug: "property-management",
+        details: [
+          "Une solution SaaS de gestion immobilière associée à une application mobile : gérer les biens, signaler les pannes et suivre les interventions de bout en bout.",
+          "La plateforme centralise le suivi du parc immobilier et des résidences, améliorant la réactivité des gestionnaires et la qualité du service aux résidents.",
+        ],
+        highlights: [
+          "Gestion des biens et des résidences",
+          "Signalement des pannes depuis l’appli mobile",
+          "Suivi des interventions",
+          "Appli Android en Kotlin et Jetpack",
+        ],
       },
       {
         title: "SaaS de gestion RH",
@@ -374,6 +494,17 @@ const fr: Dict = {
         description:
           "Dossiers du personnel, présences, congés et absences au même endroit — moins d’administratif, des données RH plus fiables.",
         role: "Full stack",
+        slug: "hr-management",
+        details: [
+          "Une solution SaaS de gestion des ressources humaines qui centralise les dossiers du personnel, le suivi des présences, les congés et les absences.",
+          "Elle simplifie les tâches administratives, améliore la fiabilité des données et facilite le suivi RH au quotidien. Construite sur ma stack grands projets : Java, Spring Boot et Angular.",
+        ],
+        highlights: [
+          "Dossiers du personnel centralisés",
+          "Suivi des présences",
+          "Gestion des congés et absences",
+          "Moins d’administratif, des données plus fiables",
+        ],
       },
       {
         title: "Détection de fraude SIM — Djezzy",
@@ -382,6 +513,19 @@ const fr: Dict = {
         description:
           "Deep learning non supervisé sur 1,5 M de transactions réelles, sans fraudes étiquetées. 26 indicateurs, AUC-ROC de 0,885.",
         role: "Data science · Stage",
+        slug: "sim-fraud-detection",
+        details: [
+          "Lors de mon stage en ingénierie des données chez Djezzy, j’ai travaillé sur la détection des fraudes commerciales liées aux cartes SIM grâce à l’IA et au machine learning. J’ai développé une approche de deep learning non supervisé capable d’identifier des comportements inhabituels dans des transactions réelles, sans dépendre d’exemples de fraude étiquetés.",
+          "À partir de 1,5 million de transactions, j’ai conçu 26 indicateurs comportementaux et temporels, puis comparé plusieurs architectures d’autoencodeurs à un modèle de référence. L’autoencodeur profond a obtenu les meilleurs résultats, avec une AUC-ROC de 0,885. J’ai utilisé t-SNE, SHAP et HDBSCAN pour visualiser, interpréter et analyser les anomalies détectées, identifiant plus de 4 000 typologies d’anomalies.",
+          "Ces travaux ont donné lieu à une publication, « Unsupervised Anomaly Detection for SIM Card Fraud Using Autoencoder-Based Reconstruction Error Analysis », présentée à la conférence internationale IEEE AIIA 2025 à Boumerdès, en Algérie.",
+        ],
+        highlights: [
+          "1,5 M de transactions réelles",
+          "26 indicateurs comportementaux et temporels",
+          "AUC-ROC de 0,885 avec un autoencodeur profond",
+          "Plus de 4 000 typologies d’anomalies",
+          "Publié à IEEE AIIA 2025",
+        ],
       },
       {
         title: "Plateforme d’e-learning — Expert Petroleum Services",
@@ -390,6 +534,16 @@ const fr: Dict = {
         description:
           "Centralise les ressources pédagogiques et facilite l’apprentissage à distance des apprenants de l’entreprise.",
         role: "Conception & développement",
+        slug: "e-learning-platform",
+        details: [
+          "Chez Expert Petroleum Services, j’ai conçu et développé une plateforme d’e-learning qui centralise les ressources pédagogiques et facilite l’apprentissage à distance.",
+          "En parallèle, j’ai formé des étudiants aux bases du développement web avec une approche pratique, et participé à la conception technique et à l’architecture des projets, en visant des solutions fiables, évolutives et adaptées aux besoins de l’entreprise.",
+        ],
+        highlights: [
+          "Ressources pédagogiques centralisées",
+          "Apprentissage à distance facilité",
+          "Architecture pensée pour la fiabilité et l’évolution",
+        ],
       },
       {
         title: "Gestion des comptes & lignes IP — Sonelgaz SPE",
@@ -398,6 +552,16 @@ const fr: Dict = {
         description:
           "Un seul outil pour les comptes des employés et leurs lignes téléphoniques IP, avec un suivi des affectations simplifié.",
         role: "Développement web · Stage",
+        slug: "sonelgaz-ip-manager",
+        details: [
+          "Lors de mon stage en développement web à la SPE (SONELGAZ Algerian Power Company), j’ai développé une application facilitant la gestion des comptes des employés et de leurs lignes téléphoniques IP.",
+          "L’objectif était de regrouper les informations dans un même outil et de simplifier le suivi des affectations pour l’équipe informatique — une mise en pratique concrète de la gestion des systèmes IT en entreprise.",
+        ],
+        highlights: [
+          "Comptes des employés et lignes IP dans un seul outil",
+          "Suivi des affectations simplifié pour l’équipe IT",
+          "Développé en JEE (Java)",
+        ],
       },
     ],
   },
@@ -564,11 +728,43 @@ const fr: Dict = {
       },
     ],
   },
+  project: {
+    back: "Tous les projets",
+    overview: "Aperçu",
+    highlights: "Points clés",
+    stack: "Stack",
+    role: "Rôle",
+    year: "Année",
+    view: "Voir le projet",
+    next: "Projet suivant",
+    cta: "Un projet similaire en tête ?",
+    ctaButton: "Parlons-en",
+  },
+  contactPage: {
+    metaTitle: "Contact — Rahil Mohamed Islam",
+    label: "Contact",
+    title: "Construisons quelque chose ensemble.",
+    intro: "Parlez-moi de votre projet, de votre équipe ou de votre idée. Je vous réponds rapidement.",
+    direct: "Ou contactez-moi directement",
+    location: "Alger, Algérie · UTC+1",
+    form: {
+      name: "Nom",
+      email: "E-mail",
+      company: "Entreprise (facultatif)",
+      message: "Message",
+      messagePlaceholder: "Que construisez-vous, et comment puis-je aider ?",
+      send: "Envoyer le message",
+      sending: "Envoi…",
+      success: "Merci — votre message a bien été envoyé. Je vous réponds très vite.",
+      invalid: "Merci d’indiquer votre nom, un e-mail valide et un message.",
+      error: "Votre message n’a pas pu être envoyé. Réessayez, ou écrivez-moi directement.",
+    },
+  },
   contact: {
     label: "11 / Contact",
     titleMuted: "Un produit qui doit",
     titleStrong: "enfin avancer ?",
-    cta: "Envoyer un e-mail",
+    cta: "Envoyer un message",
     rights: "Tous droits réservés",
   },
 };
